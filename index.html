@@ -24,11 +24,12 @@
       font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
       color: var(--text-color);
       scroll-behavior: smooth;
+      line-height: 1.6;
     }
 
     header {
       background: var(--primary-color);
-      padding: 1.2rem 2rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -37,7 +38,7 @@
       z-index: 1000;
     }
 
-    header img { height: 48px; }
+    header img { height: 42px; }
 
     nav ul {
       display: flex;
@@ -53,45 +54,59 @@
 
     nav a:hover { color: var(--accent-color); }
 
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; background: var(--primary-color); padding: 1rem; border-radius: 0.5rem; position: absolute; right: 1rem; top: 60px; }
+      nav ul.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
+
     /* Hero */
     .hero {
       background: url('servico-alvenaria.jpeg') center/cover no-repeat;
       color: var(--light-text-color);
       text-align: center;
-      padding: 8rem 2rem;
+      padding: 6rem 1.5rem;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
       margin-bottom: 1rem;
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
       margin-bottom: 2rem;
     }
 
     .cta-btn {
       background: var(--accent-color);
       color: white;
-      padding: 0.8rem 1.6rem;
+      padding: 0.9rem 1.8rem;
       border-radius: 2rem;
       font-weight: 600;
       text-decoration: none;
+      display: inline-block;
     }
 
     .cta-btn:hover { background: #e66a00; }
 
     /* Seções */
-    section {
-      padding: 5rem 2rem;
-    }
+    section { padding: 4rem 1.5rem; }
 
     section h2 {
       text-align: center;
       font-size: 2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
+      color: var(--primary-color);
     }
 
     .cards {
@@ -104,7 +119,7 @@
       background: white;
       border: 1px solid var(--border-color);
       border-radius: 1rem;
-      padding: 2rem;
+      padding: 1.5rem;
       text-align: center;
       transition: transform 0.3s;
     }
@@ -118,11 +133,20 @@
       color: var(--primary-color);
     }
 
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
     footer {
       background: var(--primary-color);
       color: white;
       text-align: center;
       padding: 2rem;
+      font-size: 0.9rem;
     }
 
     /* WhatsApp floating */
@@ -141,18 +165,14 @@
     }
 
     .whatsapp-float:hover { background: #1ebe57; }
-
-    /* Responsivo */
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-    }
   </style>
 </head>
 <body>
   <header>
     <img src="logo.jpeg" alt="HP Construção Civil">
+    <div class="menu-toggle" id="menu-toggle">☰</div>
     <nav>
-      <ul>
+      <ul id="menu">
         <li><a href="#diferenciais">Diferenciais</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#contato">Contato</a></li>
@@ -233,9 +253,19 @@
 
   <!-- Scripts -->
   <script>
+    // Scroll animations
     ScrollReveal().reveal('.hero h1, .hero p, .hero a', { delay: 200, origin: 'bottom', distance: '40px' });
     ScrollReveal().reveal('.card', { interval: 150, origin: 'bottom', distance: '30px' });
+
+    // Lucide icons
     lucide.createIcons();
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
