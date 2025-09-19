@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HP Construção Civil | Soluções de Engenharia</title>
+    <meta name="description" content="HP Construção Civil - Soluções em engenharia, elétrica, alvenaria e acabamentos. Confiabilidade e eficiência para sua obra.">
     <script src="https://unpkg.com/scrollreveal"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #0D2C4A;
@@ -17,7 +19,7 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
-            margin: 0; padding: 0; color: var(--text-color );
+            margin: 0; padding: 0; color: var(--text-color);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             padding-top: 90px;
@@ -40,6 +42,10 @@
             align-items: center;
         }
         #header-logo { max-height: 70px; }
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
         .main-nav a {
             margin-left: 25px;
             text-decoration: none;
@@ -48,6 +54,13 @@
             transition: color 0.3s;
         }
         .main-nav a:hover { color: var(--accent-color); }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
         .cta-button {
             background-color: var(--accent-color);
             color: var(--light-text-color);
@@ -66,7 +79,6 @@
             align-items: center;
             height: calc(100vh - 90px);
             min-height: 600px;
-            /* CORREÇÃO DE CACHE NA IMAGEM DE FUNDO */
             background: linear-gradient(rgba(13, 44, 74, 0.75), rgba(13, 44, 74, 0.75)), url('servico-acabamento.jpeg?v=1') no-repeat center center;
             background-size: cover;
             color: var(--light-text-color);
@@ -96,7 +108,6 @@
         
         .watermark-bg::before {
             content: '';
-            /* CORREÇÃO DE CACHE NA MARCA D'ÁGUA */
             background-image: url('logo.jpeg?v=1');
             background-repeat: no-repeat;
             background-position: center center;
@@ -113,7 +124,7 @@
             gap: 30px;
         }
         .pillar-card {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(3px);
             padding: 40px;
             border-radius: 8px;
@@ -187,15 +198,36 @@
         footer p { margin: 0 0 10px 0; }
         footer a { color: var(--light-text-color); text-decoration: none; font-weight: 600; }
         
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            z-index: 2000;
+        }
+        .whatsapp-float:hover { background: #1ebe57; }
+
         .reveal { visibility: hidden; }
+
+        @media(max-width: 768px) {
+            .main-nav { display: none; flex-direction: column; background: #fff; position: absolute; top: 90px; right: 0; padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+            .main-nav.show { display: flex; }
+            .menu-toggle { display: block; }
+            .main-nav a { margin: 10px 0; }
+        }
     </style>
 </head>
 <body>
 
     <header class="main-header">
         <div class="container">
-            <!-- CORREÇÃO DE CACHE NO LOGO -->
-            <a href="#"><img id="header-logo" src="logo.jpeg?v=1" alt="HP Construção Civil Logo"></a>
+            <a href="#"><img id="header-logo" src="logo.jpeg?v=1" alt="HP Construção Civil - Logo"></a>
+            <div class="menu-toggle">☰</div>
             <nav class="main-nav">
                 <a href="#about">Diferenciais</a>
                 <a href="#services">Serviços</a>
@@ -220,16 +252,24 @@
                 <h2 class="section-title reveal">O Padrão de Qualidade HP</h2>
                 <div class="pillars-grid">
                     <div class="pillar-card reveal">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M12 14l-4-2M12 14l4-2M12 8V2L8 4l4 4 4-4-4-2z"/><path d="M20 12l-4 2-4-2-4 2-4-2"/></svg></div>
+                        <div class="icon">⏱️</div>
                         <h3>Cronograma Cumprido</h3>
                     </div>
                     <div class="pillar-card reveal">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                        <div class="icon">🦺</div>
                         <h3>Segurança no Canteiro</h3>
                     </div>
                     <div class="pillar-card reveal">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></div>
+                        <div class="icon">🏗️</div>
                         <h3>Qualidade Construtiva</h3>
+                    </div>
+                    <div class="pillar-card reveal">
+                        <div class="icon">💰</div>
+                        <h3>Gestão de Custos Transparentes</h3>
+                    </div>
+                    <div class="pillar-card reveal">
+                        <div class="icon">👷‍♂️</div>
+                        <h3>Equipe Técnica Certificada</h3>
                     </div>
                 </div>
             </div>
@@ -239,21 +279,20 @@
             <div class="container">
                 <h2 class="section-title reveal">Nossas Especialidades</h2>
                 <div class="services-grid">
-                    <!-- CORREÇÃO DE CACHE NAS IMAGENS DOS SERVIÇOS -->
                     <div class="service-card reveal">
-                        <img src="servico-eletrica.jpeg?v=1" alt="Instalações Elétricas">
+                        <img src="servico-eletrica.jpeg?v=1" alt="Execução de instalações elétricas e hidráulicas completas">
                         <div class="service-content">
                             <h3>Instalações Elétricas e Hidráulicas</h3>
                         </div>
                     </div>
                     <div class="service-card reveal">
-                        <img src="servico-alvenaria.jpeg?v=1" alt="Alvenaria e Estruturas">
+                        <img src="servico-alvenaria.jpeg?v=1" alt="Construção de alvenaria e estruturas para obras residenciais e comerciais">
                         <div class="service-content">
                             <h3>Alvenaria e Estruturas</h3>
                         </div>
                     </div>
                     <div class="service-card reveal">
-                        <img src="servico-acabamento.jpeg?v=1" alt="Revestimentos e Acabamentos">
+                        <img src="servico-acabamento.jpeg?v=1" alt="Revestimentos e acabamentos de alta qualidade para obras">
                         <div class="service-content">
                             <h3>Revestimentos e Acabamentos</h3>
                         </div>
@@ -281,6 +320,8 @@
         </div>
     </footer>
 
+    <a href="https://api.whatsapp.com/send?phone=5512988543694" target="_blank" class="whatsapp-float">💬</a>
+
     <script>
         const sr = ScrollReveal({
             distance: '50px',
@@ -291,6 +332,13 @@
         sr.reveal('.reveal', {
             origin: 'bottom',
             interval: 100
+        });
+
+        // Menu responsivo
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.main-nav');
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('show');
         });
     </script>
 
