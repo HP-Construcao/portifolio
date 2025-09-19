@@ -7,50 +7,116 @@
     <style>
         :root {
             --primary-color: #0D2C4A; /* Azul Marinho Profundo */
-            --secondary-color: #f4f4f4; /* Cinza Claro Fundo */
+            --secondary-color: #f8f9fa; /* Fundo um pouco mais suave */
             --accent-color: #BF5700; /* Laranja Queimado/Cobre */
-            --text-color: #333;
+            --text-color: #343a40;
             --light-text-color: #ffffff;
+            --border-color: #dee2e6;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0; padding: 0; background-color: var(--secondary-color); color: var(--text-color); line-height: 1.6;
+            font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0; padding: 0; background-color: var(--secondary-color); color: var(--text-color); line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .container { max-width: 960px; margin: 0 auto; padding: 20px; }
-        header { background-color: var(--primary-color); color: var(--light-text-color); text-align: center; padding: 60px 20px; }
-        header h1 { margin: 0; font-size: 2.5em; font-weight: 700; }
-        header h1 span { display: block; font-size: 0.8em; font-weight: 400; margin-top: 10px; opacity: 0.9; }
-        header p { font-size: 1.2em; margin: 15px 0 0; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .section { padding: 50px 20px; text-align: center; }
-        .section h2 { font-size: 2em; margin-bottom: 40px; color: var(--primary-color); }
-        .pillars { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
-        .pillar { flex-basis: 250px; text-align: center; }
-        .pillar .icon { font-size: 3em; color: var(--accent-color); }
-        .pillar h3 { font-size: 1.3em; margin-top: 10px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            text-align: center;
+            padding: 80px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        header h1 span {
+            display: block;
+            font-size: 0.6em;
+            font-weight: 300;
+            margin-top: 15px;
+            opacity: 0.9;
+            letter-spacing: 0;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 20px 0 0;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+        .section { padding: 60px 20px; text-align: center; }
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .pillars {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .pillar {
+            flex: 1;
+            min-width: 280px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pillar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .pillar .icon {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        .pillar .icon svg { width: 48px; height: 48px; }
+        .pillar h3 { font-size: 1.4em; margin-top: 10px; color: var(--primary-color); font-weight: 600; }
         #services { background-color: #ffffff; }
-        .services-list { list-style: none; padding: 0; margin: 0 auto; max-width: 600px; text-align: left; }
-        .services-list li { font-size: 1.1em; padding: 12px 15px; border-bottom: 1px solid #eee; display: flex; align-items: center; }
-        .services-list li::before { content: '✓'; color: var(--accent-color); font-weight: bold; margin-right: 15px; font-size: 1.2em; }
-        #contact { background-color: var(--primary-color); color: var(--light-text-color); }
+        .services-list {
+            list-style: none; padding: 0; margin: 0 auto; max-width: 700px; text-align: left;
+            border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;
+        }
+        .services-list li {
+            font-size: 1.1em; padding: 15px 20px; border-bottom: 1px solid var(--border-color);
+            display: flex; align-items: center; background-color: #fff;
+        }
+        .services-list li:last-child { border-bottom: none; }
+        .services-list li::before {
+            content: '✓'; color: var(--accent-color); font-weight: bold; margin-right: 15px; font-size: 1.4em;
+        }
+        #contact { background: linear-gradient(rgba(13, 44, 74, 0.95), rgba(13, 44, 74, 0.95)), url('https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?auto=format&fit=crop&w=1500&q=80' ) no-repeat center center; background-size: cover; color: var(--light-text-color); }
         #contact h2 { color: var(--light-text-color); }
-        .contact-info a { color: var(--light-text-color); text-decoration: none; font-size: 1.2em; display: inline-block; margin: 10px 15px; font-weight: 500; transition: opacity 0.2s; }
-        .contact-info a:hover { opacity: 0.8; }
-        .social-icons { margin-top: 30px; }
+        .contact-info a {
+            color: var(--light-text-color); text-decoration: none; font-size: 1.2em; display: inline-block;
+            margin: 10px 15px; font-weight: 500; padding: 12px 25px; border: 2px solid var(--light-text-color);
+            border-radius: 50px; transition: background-color 0.3s, color 0.3s;
+        }
+        .contact-info a:hover { background-color: var(--light-text-color); color: var(--primary-color); }
+        .social-icons { margin-top: 40px; }
         .social-icons a { margin: 0 15px; display: inline-block; }
-        .social-icons svg { width: 32px; height: 32px; transition: opacity 0.2s; }
-        .social-icons a:hover svg { opacity: 0.8; }
-        footer { text-align: center; padding: 20px; font-size: 0.9em; color: #777; background-color: #e9e9e9; }
-        footer a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
+        .social-icons svg { width: 36px; height: 36px; transition: opacity 0.3s, transform 0.3s; }
+        .social-icons a:hover svg { opacity: 0.8; transform: scale(1.1); }
+        footer { text-align: center; padding: 30px 20px; font-size: 0.9em; color: #6c757d; background-color: #e9ecef; }
+        footer a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>
-            Execução de Serviços de Engenharia.
-            <span>Prazo, Custo e Qualidade sob Controle.</span>
+            Execução de Serviços de Engenharia
+            <span>Prazo, Custo e Qualidade sob Controle</span>
         </h1>
-        <p>Somos o parceiro que executa e resolve, garantindo que sua obra avance sem surpresas.</p>
+        <p>Somos o parceiro estratégico que executa e resolve, garantindo que sua obra avance sem surpresas e com total previsibilidade.</p>
     </header>
 
     <main>
@@ -58,15 +124,21 @@
             <div class="container">
                 <div class="pillars">
                     <div class="pillar">
-                        <div class="icon">⏱️</div>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
                         <h3>Cronograma Cumprido</h3>
                     </div>
                     <div class="pillar">
-                        <div class="icon">️🛡️</div>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
                         <h3>Segurança no Canteiro</h3>
                     </div>
                     <div class="pillar">
-                        <div class="icon">🏆</div>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V2H8v6H5l7 7 7-7h-3zM5 18v2h14v-2z"></path></svg>
+                        </div>
                         <h3>Qualidade Construtiva</h3>
                     </div>
                 </div>
@@ -81,7 +153,7 @@
                     <li>Alvenaria e Estruturas</li>
                     <li>Revestimentos e Acabamentos de Alto Padrão</li>
                     <li>Pintura Técnica e Predial</li>
-                    <li>Manutenção e Adequação Industrial (NR10)</li>
+                    <li>Manutenção e Adequação Industrial (NR10 )</li>
                 </ul>
             </div>
         </section>
@@ -89,10 +161,10 @@
         <section id="contact" class="section">
             <div class="container">
                 <h2>Seu projeto precisa avançar?</h2>
-                <p style="margin-bottom: 20px;">Fale com nossa equipe técnica.</p>
+                <p style="margin-bottom: 30px; font-size: 1.1em;">Fale com nossa equipe técnica e solicite uma proposta.</p>
                 <div class="contact-info">
-                    <a href="mailto:construcaocivilhp@gmail.com">construcaocivilhp@gmail.com</a>
-                    <a href="https://api.whatsapp.com/send?phone=5512988543694" target="_blank">(12 ) 98854-3694</a>
+                    <a href="mailto:construcaocivilhp@gmail.com">Enviar E-mail</a>
+                    <a href="https://api.whatsapp.com/send?phone=5512988543694" target="_blank">Chamar no WhatsApp</a>
                 </div>
                 <div class="social-icons">
                     <a href="https://www.instagram.com/hpcon_strucaocivil" target="_blank" title="Instagram">
