@@ -20,11 +20,10 @@
             margin: 0; padding: 0; color: var(--text-color );
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            padding-top: 90px; /* ESSA LINHA CORRIGE A QUEBRA */
+            padding-top: 90px;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* --- Header Fixo --- */
         .main-header {
             background-color: #fff;
             padding: 10px 0;
@@ -40,7 +39,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        #header-logo { max-height: 70px; } /* Logo com bom destaque */
+        #header-logo { max-height: 70px; }
         .main-nav a {
             margin-left: 25px;
             text-decoration: none;
@@ -62,16 +61,16 @@
             transform: scale(1.05);
         }
 
-        /* --- Hero Section --- */
         .hero {
             display: flex;
             align-items: center;
-            height: calc(100vh - 90px); /* Ajustado para o header */
+            height: calc(100vh - 90px);
             min-height: 600px;
-            background: linear-gradient(rgba(13, 44, 74, 0.75), rgba(13, 44, 74, 0.75)), url('servico-acabamento.jpeg') no-repeat center center;
+            /* CORREÇÃO DE CACHE NA IMAGEM DE FUNDO */
+            background: linear-gradient(rgba(13, 44, 74, 0.75), rgba(13, 44, 74, 0.75)), url('servico-acabamento.jpeg?v=1') no-repeat center center;
             background-size: cover;
             color: var(--light-text-color);
-            margin-top: -90px; /* Compensa o padding do body */
+            margin-top: -90px;
         }
         .hero-content { max-width: 700px; }
         .hero h1 {
@@ -86,7 +85,6 @@
             margin-bottom: 40px;
         }
 
-        /* --- Seções Gerais --- */
         .section { padding: 100px 0; position: relative; }
         .section-title {
             text-align: center;
@@ -95,18 +93,11 @@
             font-weight: 600;
             color: var(--primary-color);
         }
-        .section-subtitle {
-            text-align: center;
-            max-width: 700px;
-            margin: -40px auto 60px auto;
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        /* --- Marca d'água --- */
+        
         .watermark-bg::before {
             content: '';
-            background-image: url('logo.jpeg');
+            /* CORREÇÃO DE CACHE NA MARCA D'ÁGUA */
+            background-image: url('logo.jpeg?v=1');
             background-repeat: no-repeat;
             background-position: center center;
             background-size: 450px;
@@ -142,7 +133,6 @@
             color: var(--primary-color);
         }
 
-        /* --- Seção de Serviços --- */
         #services { background-color: var(--section-bg-color); }
         .services-grid {
             display: grid;
@@ -172,7 +162,6 @@
             color: var(--primary-color);
         }
 
-        /* --- Seção de Contato --- */
         #contact {
             background-color: var(--primary-color);
             color: var(--light-text-color);
@@ -189,7 +178,6 @@
             color: var(--primary-color);
         }
 
-        /* --- Footer --- */
         footer {
             background-color: #081E31;
             color: #adb5bd;
@@ -206,7 +194,8 @@
 
     <header class="main-header">
         <div class="container">
-            <a href="#"><img id="header-logo" src="logo.jpeg" alt="HP Construção Civil Logo"></a>
+            <!-- CORREÇÃO DE CACHE NO LOGO -->
+            <a href="#"><img id="header-logo" src="logo.jpeg?v=1" alt="HP Construção Civil Logo"></a>
             <nav class="main-nav">
                 <a href="#about">Diferenciais</a>
                 <a href="#services">Serviços</a>
@@ -250,20 +239,21 @@
             <div class="container">
                 <h2 class="section-title reveal">Nossas Especialidades</h2>
                 <div class="services-grid">
+                    <!-- CORREÇÃO DE CACHE NAS IMAGENS DOS SERVIÇOS -->
                     <div class="service-card reveal">
-                        <img src="servico-eletrica.jpeg" alt="Instalações Elétricas">
+                        <img src="servico-eletrica.jpeg?v=1" alt="Instalações Elétricas">
                         <div class="service-content">
                             <h3>Instalações Elétricas e Hidráulicas</h3>
                         </div>
                     </div>
                     <div class="service-card reveal">
-                        <img src="servico-alvenaria.jpeg" alt="Alvenaria e Estruturas">
+                        <img src="servico-alvenaria.jpeg?v=1" alt="Alvenaria e Estruturas">
                         <div class="service-content">
                             <h3>Alvenaria e Estruturas</h3>
                         </div>
                     </div>
                     <div class="service-card reveal">
-                        <img src="servico-acabamento.jpeg" alt="Revestimentos e Acabamentos">
+                        <img src="servico-acabamento.jpeg?v=1" alt="Revestimentos e Acabamentos">
                         <div class="service-content">
                             <h3>Revestimentos e Acabamentos</h3>
                         </div>
