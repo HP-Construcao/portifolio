@@ -26,7 +26,7 @@
         /* --- Header e Navegação --- */
         .main-header {
             background-color: #fff;
-            padding: 15px 0;
+            padding: 10px 0; /* Reduzido para acomodar logo maior */
             position: fixed;
             top: 0;
             left: 0;
@@ -39,7 +39,8 @@
             justify-content: space-between;
             align-items: center;
         }
-        #header-logo { max-height: 50px; }
+        /* LOGO MAIOR AQUI */
+        #header-logo { max-height: 60px; }
         .main-nav a {
             margin-left: 25px;
             text-decoration: none;
@@ -67,11 +68,10 @@
             align-items: center;
             height: 100vh;
             min-height: 700px;
-            /* IMAGEM PRINCIPAL APLICADA AQUI */
             background: linear-gradient(rgba(13, 44, 74, 0.75), rgba(13, 44, 74, 0.75)), url('servico-acabamento.jpeg') no-repeat center center;
             background-size: cover;
             color: var(--light-text-color);
-            padding-top: 80px; /* Espaço para o header fixo */
+            padding-top: 90px; /* Espaço para o header fixo */
         }
         .hero-content { max-width: 700px; }
         .hero h1 {
@@ -87,7 +87,7 @@
         }
 
         /* --- Seções Gerais --- */
-        .section { padding: 100px 0; }
+        .section { padding: 100px 0; position: relative; overflow: hidden; }
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -103,14 +103,26 @@
             line-height: 1.8;
         }
 
-        /* --- Seção de Pilares/Diferenciais --- */
+        /* --- MARCA D'ÁGUA --- */
+        .watermark-bg {
+            background-image: url('logo.jpeg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 400px;
+            opacity: 0.04;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+        }
         .pillars-grid {
+            position: relative; z-index: 1;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         .pillar-card {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Leve transparência */
+            backdrop-filter: blur(5px);
             padding: 40px;
             border-radius: 8px;
             text-align: center;
@@ -133,7 +145,7 @@
         #services { background-color: var(--section-bg-color); }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
         .service-card {
@@ -149,13 +161,13 @@
         }
         .service-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
         }
         .service-content { padding: 30px; }
         .service-content h3 {
             font-size: 1.4em;
-            margin: 0 0 10px 0;
+            margin: 0;
             color: var(--primary-color);
         }
 
@@ -203,7 +215,6 @@
 
     <header class="main-header">
         <div class="container">
-            <!-- LOGO CORRIGIDO AQUI -->
             <a href="#"><img id="header-logo" src="logo.jpeg" alt="HP Construção Civil Logo"></a>
             <nav class="main-nav">
                 <a href="#about">Diferenciais</a>
@@ -225,22 +236,26 @@
 
     <main>
         <section id="about" class="section">
+            <div class="watermark-bg"></div>
             <div class="container">
                 <h2 class="section-title reveal">O Padrão de Qualidade HP</h2>
                 <p class="section-subtitle reveal">Para eliminar os riscos mais comuns em um canteiro de obras, nossa metodologia é desenhada para entregar resultados consistentes e previsíveis em três pilares fundamentais.</p>
                 <div class="pillars-grid">
                     <div class="pillar-card reveal">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                        <!-- ÍCONE CORRIGIDO -->
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M12 14l-4-2M12 14l4-2M12 8V2L8 4l4 4 4-4-4-2z"/><path d="M20 12l-4 2-4-2-4 2-4-2"/></svg></div>
                         <h3>Cronograma Cumprido</h3>
                         <p>Utilizamos uma gestão de processos focada em produtividade para garantir que nossas equipes entreguem as frentes de serviço nas datas planejadas.</p>
                     </div>
                     <div class="pillar-card reveal">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                        <!-- ÍCONE CORRIGIDO -->
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
                         <h3>Segurança no Canteiro</h3>
                         <p>Operamos com total conformidade às normas de segurança (NRs ), com equipes treinadas e equipadas para um ambiente de trabalho seguro e produtivo.</p>
                     </div>
                     <div class="pillar-card reveal">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V2H8v6H5l7 7 7-7h-3zM5 18v2h14v-2z"></path></svg></div>
+                        <!-- ÍCONE CORRIGIDO -->
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></div>
                         <h3>Qualidade Construtiva</h3>
                         <p>Nosso controle de qualidade durante a execução assegura a conformidade com as especificações do projeto, reduzindo retrabalho e desperdício.</p>
                     </div>
@@ -253,7 +268,7 @@
                 <h2 class="section-title reveal">Nossas Especialidades</h2>
                 <p class="section-subtitle reveal">Oferecemos mão de obra qualificada e gestão para diversas frentes de serviço, com capacidade para atender obras de grande volume, alto padrão e do setor industrial.</p>
                 <div class="services-grid">
-                    <!-- IMAGENS DOS SERVIÇOS APLICADAS AQUI -->
+                    <!-- IMAGENS CORRESPONDENTES APLICADAS AQUI -->
                     <div class="service-card reveal">
                         <img src="servico-eletrica.jpeg" alt="Instalações Elétricas">
                         <div class="service-content">
@@ -296,14 +311,12 @@
     </footer>
 
     <script>
-        // Configuração do ScrollReveal para as animações
         const sr = ScrollReveal({
             distance: '50px',
             duration: 1500,
             easing: 'cubic-bezier(0.5, 0, 0, 1 )',
             reset: false
         });
-
         sr.reveal('.reveal', {
             origin: 'bottom',
             interval: 100
