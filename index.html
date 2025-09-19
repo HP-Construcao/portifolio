@@ -19,104 +19,98 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        header {
-            background-color: var(--primary-color);
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; position: relative; z-index: 2; }
+        .background-section {
+            position: relative;
+            background-size: cover;
+            background-position: center center;
             color: var(--light-text-color);
+        }
+        .background-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(13, 44, 74, 0.85); /* Overlay azul escuro */
+            z-index: 1;
+        }
+        header {
+            padding: 60px 20px;
             text-align: center;
-            padding: 80px 20px;
+        }
+        #header-logo {
+            max-width: 150px;
+            margin-bottom: 30px;
         }
         header h1 {
-            margin: 0;
-            font-size: 3em;
-            font-weight: 700;
-            letter-spacing: -1px;
+            margin: 0; font-size: 3em; font-weight: 700; letter-spacing: -1px;
         }
         header h1 span {
-            display: block;
-            font-size: 0.6em;
-            font-weight: 300;
-            margin-top: 15px;
-            opacity: 0.9;
-            letter-spacing: 0;
+            display: block; font-size: 0.6em; font-weight: 300; margin-top: 15px; opacity: 0.9; letter-spacing: 0;
         }
         header p {
-            font-size: 1.2em;
-            margin: 20px 0 0;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
+            font-size: 1.2em; margin: 20px 0 0; max-width: 650px; margin-left: auto; margin-right: auto; font-weight: 300;
         }
-        .section { padding: 60px 20px; text-align: center; }
+        .section { padding: 80px 20px; text-align: center; }
         .section h2 {
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-            font-weight: 600;
+            font-size: 2.5em; margin-bottom: 50px; color: var(--primary-color); font-weight: 600;
         }
-        .pillars {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
+        .pillars { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; }
         .pillar {
-            flex: 1;
-            min-width: 280px;
-            padding: 30px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background-color: #fff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-basis: 300px; padding: 30px; border: 1px solid var(--border-color); border-radius: 8px;
+            background-color: #fff; transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .pillar:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transform: translateY(-8px); box-shadow: 0 15px 25px rgba(0,0,0,0.08);
         }
-        .pillar .icon {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
+        .pillar .icon { color: var(--accent-color); margin-bottom: 15px; }
         .pillar .icon svg { width: 48px; height: 48px; }
         .pillar h3 { font-size: 1.4em; margin-top: 10px; color: var(--primary-color); font-weight: 600; }
-        #services { background-color: #ffffff; }
+        #services {
+            background-color: var(--secondary-color);
+        }
         .services-list {
-            list-style: none; padding: 0; margin: 0 auto; max-width: 700px; text-align: left;
-            border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;
+            list-style: none; padding: 0; margin: 0 auto; max-width: 750px; text-align: left;
+            border-radius: 8px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
         .services-list li {
-            font-size: 1.1em; padding: 15px 20px; border-bottom: 1px solid var(--border-color);
+            font-size: 1.1em; padding: 18px 25px; border-bottom: 1px solid var(--border-color);
             display: flex; align-items: center; background-color: #fff;
         }
         .services-list li:last-child { border-bottom: none; }
         .services-list li::before {
             content: '✓'; color: var(--accent-color); font-weight: bold; margin-right: 15px; font-size: 1.4em;
         }
-        #contact { background: linear-gradient(rgba(13, 44, 74, 0.95), rgba(13, 44, 74, 0.95)), url('https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?auto=format&fit=crop&w=1500&q=80' ) no-repeat center center; background-size: cover; color: var(--light-text-color); }
         #contact h2 { color: var(--light-text-color); }
         .contact-info a {
             color: var(--light-text-color); text-decoration: none; font-size: 1.2em; display: inline-block;
-            margin: 10px 15px; font-weight: 500; padding: 12px 25px; border: 2px solid var(--light-text-color);
+            margin: 10px 15px; font-weight: 500; padding: 12px 30px; border: 2px solid var(--light-text-color);
             border-radius: 50px; transition: background-color 0.3s, color 0.3s;
         }
         .contact-info a:hover { background-color: var(--light-text-color); color: var(--primary-color); }
-        .social-icons { margin-top: 40px; }
-        .social-icons a { margin: 0 15px; display: inline-block; }
-        .social-icons svg { width: 36px; height: 36px; transition: opacity 0.3s, transform 0.3s; }
-        .social-icons a:hover svg { opacity: 0.8; transform: scale(1.1); }
+        .social-call { margin-top: 50px; }
+        .social-call p { margin: 0 0 15px 0; font-weight: 300; }
+        .social-call a {
+            background-color: #fff; color: var(--primary-color); padding: 10px 25px; border-radius: 50px;
+            text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .social-call a:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .social-call svg { width: 24px; height: 24px; }
         footer { text-align: center; padding: 30px 20px; font-size: 0.9em; color: #6c757d; background-color: #e9ecef; }
         footer a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>
-            Execução de Serviços de Engenharia
-            <span>Prazo, Custo e Qualidade sob Controle</span>
-        </h1>
-        <p>Somos o parceiro estratégico que executa e resolve, garantindo que sua obra avance sem surpresas e com total previsibilidade.</p>
+    <header class="background-section" style="background-image: url('https://images.unsplash.com/photo-1581094376324-3c6a0c1b3d1f?auto=format&fit=crop&w=1500&q=80' );">
+        <div class="container">
+            <img id="header-logo" src="https://hp-construcao.github.io/logo.png" alt="HP Construção Civil Logo">
+            <h1>
+                Execução de Serviços de Engenharia
+                <span>Prazo, Custo e Qualidade sob Controle</span>
+            </h1>
+            <p>Somos o parceiro estratégico que executa e resolve, garantindo que sua obra avance sem surpresas e com total previsibilidade.</p>
+        </div>
     </header>
 
     <main>
@@ -125,19 +119,19 @@
                 <div class="pillars">
                     <div class="pillar">
                         <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         </div>
                         <h3>Cronograma Cumprido</h3>
                     </div>
                     <div class="pillar">
                         <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                         </div>
                         <h3>Segurança no Canteiro</h3>
                     </div>
                     <div class="pillar">
                         <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V2H8v6H5l7 7 7-7h-3zM5 18v2h14v-2z"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V2H8v6H5l7 7 7-7h-3zM5 18v2h14v-2z"></path></svg>
                         </div>
                         <h3>Qualidade Construtiva</h3>
                     </div>
@@ -145,20 +139,20 @@
             </div>
         </section>
 
-        <section id="services" class="section">
+        <section id="services" class="background-section" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1500&q=80' );">
             <div class="container">
-                <h2>Nossas Especialidades</h2>
+                <h2 style="color: white;">Nossas Especialidades</h2>
                 <ul class="services-list">
                     <li>Instalações Elétricas e Hidráulicas</li>
                     <li>Alvenaria e Estruturas</li>
                     <li>Revestimentos e Acabamentos de Alto Padrão</li>
                     <li>Pintura Técnica e Predial</li>
-                    <li>Manutenção e Adequação Industrial (NR10 )</li>
+                    <li>Manutenção e Adequação Industrial (NR10)</li>
                 </ul>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <section id="contact" class="background-section" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80' );">
             <div class="container">
                 <h2>Seu projeto precisa avançar?</h2>
                 <p style="margin-bottom: 30px; font-size: 1.1em;">Fale com nossa equipe técnica e solicite uma proposta.</p>
@@ -166,9 +160,11 @@
                     <a href="mailto:construcaocivilhp@gmail.com">Enviar E-mail</a>
                     <a href="https://api.whatsapp.com/send?phone=5512988543694" target="_blank">Chamar no WhatsApp</a>
                 </div>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/hpcon_strucaocivil" target="_blank" title="Instagram">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <div class="social-call">
+                    <p>Acompanhe nossas obras e dia a dia no Instagram:</p>
+                    <a href="https://www.instagram.com/hpcon_strucaocivil" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        @hpcon_strucaocivil
                     </a>
                 </div>
             </div>
