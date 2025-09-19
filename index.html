@@ -4,245 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HP Construção Civil | Soluções de Engenharia</title>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         :root {
-            --primary-color: #0D2C4A; /* Azul Marinho HP */
-            --accent-color: #BF5700;  /* Laranja HP */
-            --text-color: #343a40;
-            --light-text-color: #ffffff;
-            --section-bg-color: #f8f9fa;
-            --border-color: #e9ecef;
+            --primary-color: #0D2C4A;
+            --accent-color: #BF5700;
+            --text-color: #333;
+            --light-text-color: #fff;
+            --bg-light: #f8f9fa;
         }
-        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
-            margin: 0; padding: 0; color: var(--text-color );
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.7;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
         
-        /* --- Header e Navegação --- */
-        .main-header {
-            background-color: #fff;
-            padding: 15px 0; /* Aumentado para o logo */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .main-header .container {
+        /* --- Hero Section --- */
+        .hero {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            text-align: center;
+            min-height: 90vh;
+            background: linear-gradient(rgba(13, 44, 74, 0.8), rgba(13, 44, 74, 0.8)), url('servico-acabamento.jpeg') no-repeat center center;
+            background-size: cover;
+            color: var(--light-text-color);
+            padding: 40px 20px;
         }
-        /* LOGO SIGNIFICATIVAMENTE MAIOR */
-        #header-logo { max-height: 80px; }
-        .main-nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 600;
-            transition: color 0.3s;
+        #hero-logo {
+            max-width: 180px; /* Logo bem maior */
+            margin-bottom: 40px;
         }
-        .main-nav a:hover { color: var(--accent-color); }
-        .cta-button {
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+        .hero .cta-button {
             background-color: var(--accent-color);
             color: var(--light-text-color);
-            padding: 10px 25px;
+            padding: 15px 40px;
             border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
+            font-size: 1.1em;
             transition: background-color 0.3s, transform 0.3s;
         }
-        .cta-button:hover {
+        .hero .cta-button:hover {
             background-color: #A54B00;
             transform: scale(1.05);
         }
 
-        /* --- Hero Section --- */
-        .hero {
-            display: flex;
-            align-items: center;
-            height: 100vh;
-            min-height: 700px;
-            background: linear-gradient(rgba(13, 44, 74, 0.75), rgba(13, 44, 74, 0.75)), url('servico-acabamento.jpeg') no-repeat center center;
-            background-size: cover;
-            color: var(--light-text-color);
-            padding-top: 110px; /* Espaço para o header maior */
+        /* --- Seções --- */
+        .section {
+            padding: 80px 0;
         }
-        .hero-content { max-width: 700px; }
-        .hero h1 {
-            font-size: 3.8em;
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 0 0 20px 0;
-        }
-        .hero p {
-            font-size: 1.3em;
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
-
-        /* --- Seções Gerais --- */
-        .section { padding: 100px 0; position: relative; overflow: hidden; }
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-            font-size: 2.8em;
+            font-size: 2.5em;
             font-weight: 600;
             color: var(--primary-color);
+            margin-bottom: 60px;
         }
-        .section-subtitle {
-            text-align: center;
-            max-width: 700px;
-            margin: -40px auto 60px auto;
-            font-size: 1.1em;
-            line-height: 1.8;
+        #services {
+            background-color: var(--bg-light);
         }
 
-        /* --- MARCA D'ÁGUA VISÍVEL --- */
-        .watermark-bg {
-            background-image: url('logo.jpeg');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 500px; /* Tamanho aumentado */
-            opacity: 0.1; /* Opacidade aumentada */
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 0;
-        }
-        .pillars-grid {
-            position: relative; z-index: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .pillar-card {
-            background-color: rgba(255, 255, 255, 0.85); /* Leve transparência */
-            backdrop-filter: blur(5px);
-            padding: 40px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .pillar-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.07);
-        }
-        .pillar-card .icon { color: var(--accent-color); margin-bottom: 20px; }
-        .pillar-card .icon svg { width: 50px; height: 50px; }
-        .pillar-card h3 {
-            font-size: 1.5em;
-            margin: 0 0 10px 0;
-            color: var(--primary-color);
-        }
-
-        /* --- Seção de Serviços --- */
-        #services { background-color: var(--section-bg-color); }
+        /* --- Grid de Serviços --- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado para 4 colunas */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         .service-card {
             background-color: #fff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
         }
         .service-card img {
             width: 100%;
             height: 220px;
             object-fit: cover;
+            display: block;
         }
-        .service-content { padding: 30px; }
+        .service-content {
+            padding: 25px;
+        }
         .service-content h3 {
             font-size: 1.4em;
             margin: 0;
             color: var(--primary-color);
         }
 
-        /* --- Seção de Contato --- */
-        #contact {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-        }
-        #contact .section-title, #contact .section-subtitle { color: var(--light-text-color); }
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .contact-buttons .cta-button {
-            background-color: var(--accent-color);
-            padding: 15px 40px;
-            font-size: 1.1em;
-        }
-        .contact-buttons .cta-button.secondary {
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-        }
-        .contact-buttons .cta-button:hover {
-            background-color: #A54B00;
-            border-color: #A54B00;
-        }
-
         /* --- Footer --- */
         footer {
-            background-color: #081E31;
+            background-color: var(--primary-color);
             color: #adb5bd;
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
         }
-        footer p { margin: 0 0 10px 0; }
-        footer a { color: var(--light-text-color); text-decoration: none; font-weight: 600; }
-        
-        .reveal { visibility: hidden; }
+        footer h3 {
+            color: var(--light-text-color);
+            font-size: 1.5em;
+            margin: 0 0 20px 0;
+        }
+        footer a {
+            color: var(--light-text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        footer .footer-contact-links {
+            margin-bottom: 40px;
+        }
+        footer .footer-bottom p {
+            margin: 0;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container">
-            <a href="#"><img id="header-logo" src="logo.jpeg" alt="HP Construção Civil Logo"></a>
-            <nav class="main-nav">
-                <a href="#about">Diferenciais</a>
-                <a href="#services">Serviços</a>
-                <a href="#contact" class="cta-button">Solicitar Orçamento</a>
-            </nav>
-        </div>
-    </header>
-
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content reveal">
-                <h1>Engenharia Confiável para Obras de Alta Performance.</h1>
-                <p>Somos o parceiro estratégico que executa e resolve, garantindo que sua obra avance sem surpresas e com total previsibilidade de prazo, custo e qualidade.</p>
-                <a href="#contact" class="cta-button">Fale com um especialista</a>
-            </div>
-        </div>
+        <img id="hero-logo" src="logo.jpeg" alt="HP Construção Civil Logo">
+        <h1>Engenharia Confiável para Obras de Alta Performance</h1>
+        <p>Garantimos a execução da sua obra com previsibilidade de prazo, custo e qualidade, para que você avance sem surpresas.</p>
+        <a href="#contact" class="cta-button">Fale com um Especialista</a>
     </section>
 
     <main>
-        <section id="about" class="section">
-            <div class="watermark-bg"></div>
+        <section id="services" class="section">
             <div class="container">
-                <h2 class="section-title reveal">O Padrão de Qualidade HP</h2>
-                <p class="section-subtitle reveal">Para eliminar os riscos mais comuns em um canteiro de obras, nossa metodologia é desenhada para entregar resultados consistentes e previsíveis em três pilares fundamentais.</p>
-                <div class="pillars-grid">
-                    <div class="pillar-card reveal">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M12 14l-4-2M12 14l4-2M12 8V2L8 4l4 4 4-4-4-2z"/><path d="M20 12l-4 2-4-2-4 2-4-2"/></svg></div>
-                        <h3>Cronograma Cumprido</h3>
-                        <p>Utilizamos uma gestão de processos focada em produtividade para garantir que nossas equipes entreguem as frentes de serviço nas datas planejadas.</p>
+                <h2 class="section-title">Nossas Especialidades</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="servico-eletrica.jpeg" alt="Instalações Elétricas e Hidráulicas">
+                        <div class="service-content">
+                            <h3>Instalações Elétricas e Hidráulicas</h3>
+                        </div>
                     </div>
-                    <div class
+                    <div class="service-card">
+                        <img src="servico-alvenaria.jpeg" alt="Alvenaria e Estruturas">
+                        <div class="service-content">
+                            <h3>Alvenaria e Estruturas</h3>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="servico-acabamento.jpeg" alt="Revestimentos e Acabamentos">
+                        <div class="service-content">
+                            <h3>Revestimentos e Acabamentos</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>Seu projeto precisa avançar?</h3>
+            <div class="footer-contact-links">
+                <a href="https://api.whatsapp.com/send?phone=5512988543694" target="_blank">WhatsApp</a>
+                <a href="mailto:construcaocivilhp@gmail.com">E-mail</a>
+                <a href="https://www.instagram.com/hpcon_strucaocivil" target="_blank">Instagram</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HP Construção Civil e Montagem</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
