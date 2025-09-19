@@ -3,268 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HP Construção Civil | Obras com Prazo, Segurança e Transparência</title>
-  <meta name="description" content="HP Construção Civil – Engenharia e execução de obras com foco em prazo, segurança e transparência. Do projeto à entrega das chaves, construímos confiança.">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <meta name="description" content="HP Construção - Serviços de elétrica, alvenaria e acabamentos. Qualidade, confiança e segurança em cada projeto.">
+  <title>HP Construção</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #0D2C4A;
-      --accent-color: #BF5700;
-      --text-color: #343a40;
-      --light-text-color: #ffffff;
-      --section-bg-color: #f8f9fa;
-      --border-color: #e9ecef;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
-      color: var(--text-color);
-      scroll-behavior: smooth;
-      line-height: 1.6;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #f9f9f9; color: #222; line-height: 1.6; }
     header {
-      background: var(--primary-color);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
+      background: #002244; color: #fff; padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 1000;
+    }
+    header h1 { font-size: 1.5rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { color: #fff; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #ff6600; }
+    .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
+
+    .hero {
+      background: url('hero.jpg') center/cover no-repeat;
+      color: white; height: 90vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 1rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem; background: rgba(0,0,0,0.6);
+      padding: 1rem 2rem; border-radius: 12px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    section { padding: 3rem 2rem; max-width: 1200px; margin: auto; }
+    h3 { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #002244; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card {
+      background: white; padding: 1.5rem; border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .card img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 8px; margin-bottom: 1rem;
+    }
+
+    .cta { text-align: center; margin-top: 2rem; }
+    .cta a {
+      display: inline-block; background: #ff6600; color: white;
+      padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none;
+      font-weight: 600; transition: background 0.3s;
+    }
+    .cta a:hover { background: #e65c00; }
+
+    footer { background: #002244; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+
+    /* Botão flutuante WhatsApp */
+    .whatsapp {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #25D366; color: white; padding: 12px 16px;
+      border-radius: 50%; font-size: 1.8rem; text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s;
       z-index: 1000;
     }
+    .whatsapp:hover { transform: scale(1.1); }
 
-    header img { height: 42px; }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--light-text-color);
-      font-weight: 600;
-    }
-
-    nav a:hover { color: var(--accent-color); }
-
-    /* Mobile menu */
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      color: white;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav ul { display: none; flex-direction: column; background: var(--primary-color); padding: 1rem; border-radius: 0.5rem; position: absolute; right: 1rem; top: 60px; }
+    @media(max-width: 768px) {
+      nav ul {
+        flex-direction: column; position: absolute; top: 60px; right: 0;
+        background: #002244; width: 200px; display: none;
+      }
       nav ul.active { display: flex; }
       .menu-toggle { display: block; }
     }
-
-    /* Hero */
-    .hero {
-      background: url('servico-alvenaria.jpeg') center/cover no-repeat;
-      color: var(--light-text-color);
-      text-align: center;
-      padding: 6rem 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      margin-bottom: 2rem;
-    }
-
-    .cta-btn {
-      background: var(--accent-color);
-      color: white;
-      padding: 0.9rem 1.8rem;
-      border-radius: 2rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .cta-btn:hover { background: #e66a00; }
-
-    /* Seções */
-    section { padding: 4rem 1.5rem; }
-
-    section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2.5rem;
-      color: var(--primary-color);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .card:hover { transform: translateY(-5px); }
-
-    .card i {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      background: var(--primary-color);
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-
-    /* WhatsApp floating */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      padding: 15px;
-      font-size: 24px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-      z-index: 2000;
-      text-decoration: none;
-    }
-
-    .whatsapp-float:hover { background: #1ebe57; }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.jpeg" alt="HP Construção Civil">
-    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <h1>HP Construção</h1>
+    <span class="menu-toggle">&#9776;</span>
     <nav>
-      <ul id="menu">
-        <li><a href="#diferenciais">Diferenciais</a></li>
+      <ul>
         <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
-    <h1>Sua obra entregue no prazo, com segurança e transparência</h1>
-    <p>Da fundação ao acabamento, a HP Construção Civil cuida de cada detalhe com excelência.</p>
-    <a href="https://api.whatsapp.com/send?phone=5512988543694" class="cta-btn">Solicitar Orçamento</a>
+    <h2>Construindo com qualidade e confiança</h2>
   </section>
 
-  <!-- Diferenciais -->
-  <section id="diferenciais">
-    <h2>Por que escolher a HP?</h2>
-    <div class="cards">
+  <section id="servicos">
+    <h3>Nossos Serviços</h3>
+    <div class="grid">
       <div class="card">
-        <i data-lucide="clock"></i>
-        <h3>Prazo Cumprido</h3>
-        <p>Planejamento rigoroso para entregar sua obra no tempo certo.</p>
+        <img src="servico-eletrica.jpg" alt="Serviços de elétrica">
+        <h4>Elétrica</h4>
+        <p>Instalações elétricas seguras e dentro das normas técnicas.</p>
       </div>
       <div class="card">
-        <i data-lucide="file-text"></i>
-        <h3>Orçamento Transparente</h3>
-        <p>Sem surpresas: valores claros e contrato detalhado.</p>
+        <img src="servico-alvenaria.jpg" alt="Serviços de alvenaria">
+        <h4>Alvenaria</h4>
+        <p>Construções, reformas e ampliações estruturais.</p>
       </div>
       <div class="card">
-        <i data-lucide="users"></i>
-        <h3>Equipe Técnica Certificada</h3>
-        <p>Engenheiros e profissionais qualificados em cada etapa.</p>
-      </div>
-      <div class="card">
-        <i data-lucide="shield"></i>
-        <h3>Segurança em Primeiro Lugar</h3>
-        <p>Obras conforme normas técnicas e responsabilidade legal.</p>
+        <img src="servico-acabamento.jpg" alt="Serviços de acabamento">
+        <h4>Acabamentos</h4>
+        <p>Pintura, pisos e revestimentos com alto padrão de qualidade.</p>
       </div>
     </div>
   </section>
 
-  <!-- Serviços -->
-  <section id="servicos" style="background: var(--section-bg-color);">
-    <h2>Nossos Serviços</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="servico-alvenaria.jpeg" alt="Execução de estruturas de alvenaria residencial e comercial">
-        <h3>Alvenaria e Estruturas</h3>
-      </div>
-      <div class="card">
-        <img src="servico-eletrica.jpeg" alt="Instalações elétricas seguras e dimensionadas conforme normas">
-        <h3>Instalações Elétricas</h3>
-      </div>
-      <div class="card">
-        <img src="servico-acabamento.jpeg" alt="Acabamentos de alto padrão em pisos, pintura e revestimentos">
-        <h3>Acabamentos</h3>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato">
-    <h2>Entre em Contato</h2>
-    <p style="text-align:center; margin-bottom:1.5rem;">
-      Tire suas dúvidas ou solicite um orçamento agora mesmo.
+  <section id="sobre">
+    <h3>Sobre Nós</h3>
+    <p>
+      A <strong>HP Construção</strong> nasceu com o propósito de oferecer serviços de excelência em elétrica,
+      alvenaria e acabamentos. Nossa equipe é formada por profissionais qualificados que garantem
+      segurança, qualidade e respeito a prazos em cada obra.
     </p>
-    <div style="text-align:center;">
-      <a href="https://api.whatsapp.com/send?phone=5512988543694" class="cta-btn">Falar no WhatsApp</a>
+  </section>
+
+  <section id="contato">
+    <h3>Contato</h3>
+    <p style="text-align:center;">Solicite seu orçamento sem compromisso:</p>
+    <div class="cta">
+      <a href="https://wa.me/5512991082457" target="_blank">Fale no WhatsApp</a>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 HP Construção Civil – Todos os direitos reservados.</p>
+    <p>&copy; 2025 HP Construção - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://api.whatsapp.com/send?phone=5512988543694" target="_blank" class="whatsapp-float">💬</a>
+  <a href="https://wa.me/5512991082457" class="whatsapp" target="_blank">💬</a>
 
-  <!-- Scripts -->
   <script>
-    // Scroll animations
-    ScrollReveal().reveal('.hero h1, .hero p, .hero a', { delay: 200, origin: 'bottom', distance: '40px' });
-    ScrollReveal().reveal('.card', { interval: 150, origin: 'bottom', distance: '30px' });
-
-    // Lucide icons
-    lucide.createIcons();
-
-    // Mobile menu
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav ul');
     menuToggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
+      nav.classList.toggle('active');
     });
   </script>
 </body>
