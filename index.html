@@ -26,7 +26,7 @@
         /* --- Header e Navegação --- */
         .main-header {
             background-color: #fff;
-            padding: 10px 0; /* Reduzido para acomodar logo maior */
+            padding: 15px 0; /* Aumentado para o logo */
             position: fixed;
             top: 0;
             left: 0;
@@ -39,8 +39,8 @@
             justify-content: space-between;
             align-items: center;
         }
-        /* LOGO MAIOR AQUI */
-        #header-logo { max-height: 60px; }
+        /* LOGO SIGNIFICATIVAMENTE MAIOR */
+        #header-logo { max-height: 80px; }
         .main-nav a {
             margin-left: 25px;
             text-decoration: none;
@@ -58,7 +58,7 @@
             transition: background-color 0.3s, transform 0.3s;
         }
         .cta-button:hover {
-            background-color: #A54B00; /* Laranja mais escuro */
+            background-color: #A54B00;
             transform: scale(1.05);
         }
 
@@ -71,7 +71,7 @@
             background: linear-gradient(rgba(13, 44, 74, 0.75), rgba(13, 44, 74, 0.75)), url('servico-acabamento.jpeg') no-repeat center center;
             background-size: cover;
             color: var(--light-text-color);
-            padding-top: 90px; /* Espaço para o header fixo */
+            padding-top: 110px; /* Espaço para o header maior */
         }
         .hero-content { max-width: 700px; }
         .hero h1 {
@@ -103,13 +103,13 @@
             line-height: 1.8;
         }
 
-        /* --- MARCA D'ÁGUA --- */
+        /* --- MARCA D'ÁGUA VISÍVEL --- */
         .watermark-bg {
             background-image: url('logo.jpeg');
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: 400px;
-            opacity: 0.04;
+            background-size: 500px; /* Tamanho aumentado */
+            opacity: 0.1; /* Opacidade aumentada */
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             z-index: 0;
@@ -121,7 +121,7 @@
             gap: 30px;
         }
         .pillar-card {
-            background-color: rgba(255, 255, 255, 0.8); /* Leve transparência */
+            background-color: rgba(255, 255, 255, 0.85); /* Leve transparência */
             backdrop-filter: blur(5px);
             padding: 40px;
             border-radius: 8px;
@@ -145,7 +145,7 @@
         #services { background-color: var(--section-bg-color); }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustado para 4 colunas */
             gap: 30px;
         }
         .service-card {
@@ -199,7 +199,7 @@
 
         /* --- Footer --- */
         footer {
-            background-color: #081E31; /* Azul ainda mais escuro */
+            background-color: #081E31;
             color: #adb5bd;
             padding: 40px 0;
             text-align: center;
@@ -207,7 +207,6 @@
         footer p { margin: 0 0 10px 0; }
         footer a { color: var(--light-text-color); text-decoration: none; font-weight: 600; }
         
-        /* --- Animações com ScrollReveal --- */
         .reveal { visibility: hidden; }
     </style>
 </head>
@@ -242,86 +241,8 @@
                 <p class="section-subtitle reveal">Para eliminar os riscos mais comuns em um canteiro de obras, nossa metodologia é desenhada para entregar resultados consistentes e previsíveis em três pilares fundamentais.</p>
                 <div class="pillars-grid">
                     <div class="pillar-card reveal">
-                        <!-- ÍCONE CORRIGIDO -->
                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M12 14l-4-2M12 14l4-2M12 8V2L8 4l4 4 4-4-4-2z"/><path d="M20 12l-4 2-4-2-4 2-4-2"/></svg></div>
                         <h3>Cronograma Cumprido</h3>
                         <p>Utilizamos uma gestão de processos focada em produtividade para garantir que nossas equipes entreguem as frentes de serviço nas datas planejadas.</p>
                     </div>
-                    <div class="pillar-card reveal">
-                        <!-- ÍCONE CORRIGIDO -->
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-                        <h3>Segurança no Canteiro</h3>
-                        <p>Operamos com total conformidade às normas de segurança (NRs ), com equipes treinadas e equipadas para um ambiente de trabalho seguro e produtivo.</p>
-                    </div>
-                    <div class="pillar-card reveal">
-                        <!-- ÍCONE CORRIGIDO -->
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></div>
-                        <h3>Qualidade Construtiva</h3>
-                        <p>Nosso controle de qualidade durante a execução assegura a conformidade com as especificações do projeto, reduzindo retrabalho e desperdício.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="section">
-            <div class="container">
-                <h2 class="section-title reveal">Nossas Especialidades</h2>
-                <p class="section-subtitle reveal">Oferecemos mão de obra qualificada e gestão para diversas frentes de serviço, com capacidade para atender obras de grande volume, alto padrão e do setor industrial.</p>
-                <div class="services-grid">
-                    <!-- IMAGENS CORRESPONDENTES APLICADAS AQUI -->
-                    <div class="service-card reveal">
-                        <img src="servico-eletrica.jpeg" alt="Instalações Elétricas">
-                        <div class="service-content">
-                            <h3>Instalações Elétricas e Hidráulicas</h3>
-                        </div>
-                    </div>
-                    <div class="service-card reveal">
-                        <img src="servico-alvenaria.jpeg" alt="Alvenaria e Estruturas">
-                        <div class="service-content">
-                            <h3>Alvenaria e Estruturas</h3>
-                        </div>
-                    </div>
-                    <div class="service-card reveal">
-                        <img src="servico-acabamento.jpeg" alt="Revestimentos e Acabamentos">
-                        <div class="service-content">
-                            <h3>Revestimentos e Acabamentos</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title reveal">Seu projeto precisa avançar com segurança e eficiência?</h2>
-                <p class="section-subtitle reveal">Vamos conversar. Nossa equipe técnica está pronta para entender sua demanda e propor a melhor solução.</p>
-                <div class="contact-buttons reveal">
-                    <a href="https://api.whatsapp.com/send?phone=5512988543694" target="_blank" class="cta-button">Chamar no WhatsApp</a>
-                    <a href="mailto:construcaocivilhp@gmail.com" class="cta-button secondary">Enviar um E-mail</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 HP Construção Civil e Montagem. Todos os direitos reservados.</p>
-            <p><a href="https://hp-construcao.github.io/" target="_blank">Acesse nosso Hub de Contatos</a></p>
-        </div>
-    </footer>
-
-    <script>
-        const sr = ScrollReveal({
-            distance: '50px',
-            duration: 1500,
-            easing: 'cubic-bezier(0.5, 0, 0, 1 )',
-            reset: false
-        });
-        sr.reveal('.reveal', {
-            origin: 'bottom',
-            interval: 100
-        });
-    </script>
-
-</body>
-</html>
+                    <div class
